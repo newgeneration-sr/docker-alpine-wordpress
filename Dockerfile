@@ -1,4 +1,4 @@
-FROM samirkherraz/alpine-s6
+FROM dotriver/alpine-s6
 
 ENV DATABASE_HOST=localhost \
     DATABASE_PORT=3306 \
@@ -7,7 +7,7 @@ ENV DATABASE_HOST=localhost \
     DATABASE_NAME=nextcloud \
     ADMIN_USERNAME=admin \
     ADMIN_PASSWORD=password \
-    ADMIN_EMAIL=admin@exemple.org \
+    ADMIN_EMAIL=admin@example.org \
     TRUSTED_DOMAIN=localhost \
     SITENAME="Wordpress Site"
 

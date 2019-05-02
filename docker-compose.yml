@@ -1,0 +1,57 @@
+version: '3.1'
+
+services:
+
+  Wordpress:
+    image: dotriver/wordpress
+    environment:
+        - DATABASE_HOST=mariadb
+        - DATABASE_PORT=3306
+        - DATABASE_NAME=wordpress
+        - DATABASE_USERNAME=wordpress
+        - DATABASE_PASSWORD=password
+        - ADMIN_USERNAME=admin
+        - ADMIN_PASSWORD=password
+        - ADMIN_EMAIL=admin@example.org
+        - TRUSTED_DOMAIN=172.17.0.1:8080
+        - SITENAME="Wordpress Site"
+    ports:
+      - 8080:80
+    volumes:
+      - wordpress-data:/var/www/wordpress/
+    networks:
+      default:
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+      restart_policy:
+        condition: on-failure
+      mode: global
+
+  mariadb:
+    image: dotriver/mariadb
+    environment:
+      - ROOT_PASSWORD=password
+      - DB_0_NAME=wordpress
+      - DB_0_PASS=password
+    ports:
+      - 3306:3306
+      - 8081:80
+    volumes:
+      - mariadb-data:/var/lib/mysql/
+      - mariadb-config:/etc/mysql/
+    networks:
+      default:
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+      restart_policy:
+        condition: on-failure
+      mode: global
+
+volumes:
+    wordpress-data:
+    mariadb-data:
+    mariadb-config:
