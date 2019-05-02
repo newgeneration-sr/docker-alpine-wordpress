@@ -31,8 +31,9 @@ services:
         - DATABASE_PASSWORD=password
         - ADMIN_USERNAME=admin
         - ADMIN_PASSWORD=password
-        - TRUSTED_DOMAIN_0=172.17.0.1:8080
-        - TRUSTED_DOMAIN_1=box.example.org
+        - ADMIN_EMAIL=admin@example.org
+        - TRUSTED_DOMAIN=172.17.0.1:8080
+        - SITENAME="Wordpress Site"
     ports:
       - 8080:80
     volumes:
