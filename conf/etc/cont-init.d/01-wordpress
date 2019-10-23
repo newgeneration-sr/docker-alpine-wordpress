@@ -24,7 +24,7 @@ install(){
       echo ">>> Download"
       run_wp wp core download
       echo ">>> Configure"
-      run_wp wp core config --dbprefix='wpi_' --dbhost=${DATABASE_HOST}  --dbname=${DATABASE_NAME} --dbuser=${DATABASE_USERNAME} --dbpass=${DATABASE_PASSWORD}
+      run_wp wp config create --dbprefix='wpi_' --dbhost=${DATABASE_HOST}  --dbname=${DATABASE_NAME} --dbuser=${DATABASE_USERNAME} --dbpass=${DATABASE_PASSWORD}
      
 
     fi
@@ -86,7 +86,4 @@ success(){
   return 0
 }
 
-
-
-
-install  &&  config && fix_https && success || fail
+install && config && fix_https && success || fail
