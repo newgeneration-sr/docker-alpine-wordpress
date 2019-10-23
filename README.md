@@ -16,7 +16,6 @@
 # Compose file example
 
 ```
-
 version: '3.1'
 
 services:
@@ -33,21 +32,14 @@ services:
         - ADMIN_PASSWORD=password
         - ADMIN_EMAIL=admin@example.org
         - TRUSTED_DOMAIN=172.17.0.1:8080
-        - SITENAME="Wordpress Site"
+        - SITENAME=Wordpress Site
     ports:
       - 8080:80
     volumes:
       - wordpress-data:/var/www/wordpress/
     networks:
       default:
-    deploy:
-      resources:
-        limits:
-          memory: 256M
-      restart_policy:
-        condition: on-failure
-      mode: global
-
+    
   mariadb:
     image: dotriver/mariadb
     environment:
@@ -62,17 +54,9 @@ services:
       - mariadb-config:/etc/mysql/
     networks:
       default:
-    deploy:
-      resources:
-        limits:
-          memory: 256M
-      restart_policy:
-        condition: on-failure
-      mode: global
-
+    
 volumes:
     wordpress-data:
     mariadb-data:
     mariadb-config:
-
 ```

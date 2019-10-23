@@ -21,14 +21,7 @@ services:
       - wordpress-data:/var/www/wordpress/
     networks:
       default:
-    deploy:
-      resources:
-        limits:
-          memory: 256M
-      restart_policy:
-        condition: on-failure
-      mode: global
-
+    
   mariadb:
     image: dotriver/mariadb
     environment:
@@ -43,14 +36,7 @@ services:
       - mariadb-config:/etc/mysql/
     networks:
       default:
-    deploy:
-      resources:
-        limits:
-          memory: 256M
-      restart_policy:
-        condition: on-failure
-      mode: global
-
+    
 volumes:
     wordpress-data:
     mariadb-data:
