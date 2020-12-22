@@ -1,3 +1,7 @@
+![docker build automated](https://img.shields.io/docker/cloud/automated/dotriver/wordpress)
+![docker build status](https://img.shields.io/docker/cloud/build/dotriver/wordpress)
+
+
 # Wordpress
 
 # Auto configuration parameters :
